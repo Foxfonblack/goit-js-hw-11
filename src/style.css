@@ -32,6 +32,8 @@
     width: 280px;
     height: 190px;
     display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 .gallery{
     display: flex;
@@ -56,14 +58,15 @@
 }
 .photo-card{
     border: 1px solid blueviolet;
+    border-radius: 8px;
     -webkit-box-shadow: 10px 10px 5px -6px rgba(179,123,55,1);
--moz-box-shadow: 10px 10px 5px -6px rgba(179,123,55,1);
-box-shadow: 10px 10px 5px -6px rgba(179,123,55,1);
+    -moz-box-shadow: 10px 10px 5px -6px rgba(179,123,55,1);
+    box-shadow: 10px 10px 5px -6px rgba(179,123,55,1);
 }
 
 .photo-card:hover{
     cursor: pointer;
-scale: 1.02;
+    scale: 1.02;
 }
 .load-more{
     width: 160px;
@@ -74,5 +77,11 @@ scale: 1.02;
     border-radius: 12px;
     color: blueviolet;
     margin: 12px auto;
-    display: block;
+    /* display: block; */
+}
+.btn_wrapper{
+    display: flex;
+    align-items: center;
+    /* margin: 12px auto; */
+    justify-content: center;
 }

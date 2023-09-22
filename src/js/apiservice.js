@@ -7,9 +7,10 @@ static BASE_URL = 'https://pixabay.com/api/'
 
 constructor (){
     this.query = '';
-    this.page = 1
+    this.page = 1;
 }
-getImages(){
+
+async getImages(){
     const searchParams = new URLSearchParams({
         key: APIService.API_KEY,
         page: this.page,
@@ -19,16 +20,25 @@ getImages(){
         orientation: 'horizontal',
         safesearch: true
     })
-    return fetch(`${APIService.BASE_URL}?${searchParams}`)
-    .then((resp)=>{
-        if (!resp.ok){
-            throw new Error(resp.statusText)
-        }
-        this.pageIncrement()
-        return resp.json()
-    })
-}
+    // return fetch(`${APIService.BASE_URL}?${searchParams}`)
+    // .then((resp)=>{
+    //     if (!resp.ok){
+    //         throw new Error(resp.statusText)
+    //     }
+    //     this.pageIncrement()
+    //     return resp.json()
+    // })
 
+    try{
+        const resp = await axios.get(`${APIService.BASE_URL}?${searchParams}`)
+    this.pageIncrement()
+    return resp.data
+
+}
+catch (error){
+    console.log(error.message);
+}
+}
 pageIncrement(){
     this.page+=1
 }
