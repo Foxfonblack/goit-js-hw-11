@@ -15,7 +15,7 @@ btn.hide()
 const apis = new APIService()
 
 let lightbox = new simpleLightbox('.link')
-console.log(lightbox);
+
 
 function onSubmit(evt){
 evt.preventDefault()
@@ -24,6 +24,12 @@ apis.pageReset()
 apis.query = evt.currentTarget.elements.searchQuery.value
 apis.getImages().then((data)=>{
     console.log(data);
+    console.log(apis.query);
+    if(apis.query.trim()===''){
+      btn.hide()
+      Notiflix.Notify.failure("Input field shouldn't be empty. Please, enter your request!")
+      return
+    }
     if (data.hits.length===0){
       btn.hide()
       Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.')
@@ -32,6 +38,7 @@ apis.getImages().then((data)=>{
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`) 
       btn.show()
     }
+
   
     const markup = createMarkup(data.hits)
     gallery.insertAdjacentHTML("beforeend", markup)
@@ -100,6 +107,3 @@ function createMarkup(arr){
     }).join("")
 }
 
-const a = [1,1,1,2,2,22,3,3,3,4]
-const b = new Set(a)
-console.log(b);
