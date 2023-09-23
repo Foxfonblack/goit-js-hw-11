@@ -84,7 +84,7 @@ window.scrollBy({
 function createMarkup(arr){
     return arr.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads})=>{
     return `<div class="photo-card">
-    <a class="link simplelightbox" src="${largeImageURL}"><img class="img" src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
+    <a class="link simplelightbox" href="${largeImageURL}"><img class="img" src="${webformatURL}" alt="${tags}" loading="lazy" /></a>
     <div class="info">
       <p class="info-item">
         <b>Likes</b>
