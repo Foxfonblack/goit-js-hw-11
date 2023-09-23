@@ -28,7 +28,7 @@ async getImages(){
     //     this.pageIncrement()
     //     return resp.json()
     // })
-
+    // await
     try{
         const resp = await axios.get(`${APIService.BASE_URL}?${searchParams}`)
     this.pageIncrement()
