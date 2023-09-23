@@ -99,3 +99,7 @@ function createMarkup(arr){
   </div>`
     }).join("")
 }
+
+const a = [1,1,1,2,2,22,3,3,3,4]
+const b = new Set(a)
+console.log(b);
